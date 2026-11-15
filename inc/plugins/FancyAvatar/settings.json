@@ -1,0 +1,121 @@
+{
+    "group": {
+        "name": "fancyavatar",
+        "title": "Fancy Avatar Settings",
+        "description": "Configure avatar provider and settings for your forum. Automatically assigns unique avatars to users without custom avatars."
+    },
+    "settings": {
+        "enabled": {
+            "title": "Enable Fancy Avatar",
+            "description": "Enable or disable the Fancy Avatar plugin. When enabled, users without custom avatars will automatically receive avatars.",
+            "optionscode": "yesno",
+            "value": "1",
+            "disporder": 1
+        },
+        "provider": {
+            "title": "Avatar Provider",
+            "description": "Select which avatar service to use. DiceBear offers 24+ artistic styles. UI Avatars generates clean initial-based avatars. Avataaars creates customizable cartoon characters.",
+            "optionscode": "select\ndicebear=DiceBear (24+ Artistic Styles)\nuiavatars=UI Avatars (Initials-Based)\navataaars=Avataaars (Customizable Characters)",
+            "value": "dicebear",
+            "disporder": 2
+        },
+        "size": {
+            "title": "Avatar Size (pixels)",
+            "description": "The width and height of the generated avatar in pixels. Recommended: 64, 128, 256.",
+            "optionscode": "numeric",
+            "value": "128",
+            "disporder": 3
+        },
+        "seed": {
+            "title": "Avatar Seed Method",
+            "description": "How avatar uniqueness is determined. Username gives each user a unique look; Email provides consistency across services; UID uses the numeric user ID; Random generates a different avatar each page load.",
+            "optionscode": "select\nusername=Username (Unique per user)\nemail=Email (Consistent across services)\nuid=User ID (Numeric seed)\nrandom=Random (Different each load)",
+            "value": "username",
+            "disporder": 4
+        },
+        "radius": {
+            "title": "Border Radius (%)",
+            "description": "Roundedness of avatar corners. 0 = square corners, 50 = fully round (circle). Applied as CSS border-radius. Default: 50",
+            "optionscode": "numeric",
+            "value": "50",
+            "disporder": 5
+        },
+        "exclude_groups": {
+            "title": "Exclude User Groups",
+            "description": "Comma-separated list of usergroup IDs to exclude from automatic avatar assignment. Useful for admin accounts or special groups.",
+            "optionscode": "groupselect",
+            "value": "",
+            "disporder": 6
+        },
+        "refresh_on_view": {
+            "title": "Refresh Avatar on Profile View",
+            "description": "When enabled, avatar URLs are refreshed to reflect current settings when a profile is viewed. Disable for better performance on high-traffic forums.",
+            "optionscode": "yesno",
+            "value": "0",
+            "disporder": 7
+        },
+        "style": {
+            "title": "DiceBear Style",
+            "description": "Visual style for DiceBear avatars. Only applies when provider is set to DiceBear. Visit <a href=\"https://www.dicebear.com/styles/\" target=\"_blank\">DiceBear Styles</a> for previews.",
+            "optionscode": "select\nadventurer=Adventurer\nadventurer-neutral=Adventurer Neutral\navataaars=Avataaars\navataaars-neutral=Avataaars Neutral\nbig-ears=Big Ears\nbig-ears-neutral=Big Ears Neutral\nbig-smile=Big Smile\nbottts=Bottts\nbottts-neutral=Bottts Neutral\nfun-emoji=Fun Emoji\nicons=Icons\nidenticon=Identicon\ninitials=Initials\nlorelei=Lorelei\nlorelei-neutral=Lorelei Neutral\nmicah=Micah\nmicah-neutral=Micah Neutral\nminiavs=Miniavs\npersonas=Personas\npixel-art=Pixel Art\npixel-art-neutral=Pixel Art Neutral\nrings=Rings\nshapes=Shapes\nthumbs=Thumbs",
+            "value": "adventurer",
+            "disporder": 10
+        },
+        "bgcolor": {
+            "title": "DiceBear Background Color",
+            "description": "Background color for DiceBear avatars. 'Transparent' uses the style's default. Only applies to DiceBear provider.",
+            "optionscode": "select\ntransparent=Transparent (Default)\nb6e3f4=Light Blue\nc0aede=Lavender\nd1d4f9=Light Purple\nffd5dc=Pink\nffdfbf=Peach\nffffff=White\n000000=Black",
+            "value": "transparent",
+            "disporder": 11
+        },
+        "shape": {
+            "title": "DiceBear Avatar Shape",
+            "description": "Shape for supported DiceBear styles. Default uses the style's native shape.",
+            "optionscode": "select\ndefault=Default\ncircle=Circle\nsquare=Square",
+            "value": "default",
+            "disporder": 12
+        },
+        "mouth": {
+            "title": "DiceBear Mouth Style",
+            "description": "Mouth expression for DiceBear avataaars style. Default uses random selection.",
+            "optionscode": "select\ndefault=Default\nsmile=Smile\nlaughing=Laughing\nnervous=Nervous\nsad=Sad\nopen=Open\nserious=Serious\ntongue=Tongue",
+            "value": "default",
+            "disporder": 13
+        },
+        "expression": {
+            "title": "DiceBear Expression Style",
+            "description": "Facial expression for supported DiceBear styles. Default uses random selection.",
+            "optionscode": "select\ndefault=Default\nhappy=Happy\nsad=Sad\nangry=Angry\nsurprised=Surprised\nshocked=Shocked\nblink=Blink\nwink=Wink\nlaughing=Laughing",
+            "value": "default",
+            "disporder": 14
+        },
+        "uiavatars_color": {
+            "title": "UI Avatars Font Color",
+            "description": "Font color for UI Avatars initials. Only applies when provider is set to UI Avatars. 'Default' uses automatic contrast.",
+            "optionscode": "select\ndefault=Default (Auto Contrast)\nffffff=White\n000000=Black\nff0000=Red\n0000ff=Blue\n008000=Green\n800080=Purple\nff6600=Orange",
+            "value": "default",
+            "disporder": 20
+        },
+        "uiavatars_bold": {
+            "title": "UI Avatars Bold Text",
+            "description": "Display initials in bold font for UI Avatars. Only applies when provider is set to UI Avatars.",
+            "optionscode": "yesno",
+            "value": "no",
+            "disporder": 21
+        },
+        "uiavatars_length": {
+            "title": "UI Avatars Initials Length",
+            "description": "Number of characters to use from the username for initials. Only applies when provider is set to UI Avatars.",
+            "optionscode": "numeric",
+            "value": "2",
+            "disporder": 22
+        },
+        "avataaars_style": {
+            "title": "Avataaars Avatar Style",
+            "description": "Choose between Circle (with background) or Transparent (no background) for Avataaars. Only applies when provider is set to Avataaars.",
+            "optionscode": "select\ncircle=Circle\ntransparent=Transparent",
+            "value": "circle",
+            "disporder": 30
+        }
+    }
+}

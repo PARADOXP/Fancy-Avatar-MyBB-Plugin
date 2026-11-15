@@ -1,0 +1,151 @@
+<tr>
+    <td class="tcat" colspan="2"><strong>{$lang->fancyavatar_ucp_title}</strong></td>
+</tr>
+<tr>
+    <td class="trow1" colspan="2">
+        <p>{$lang->fancyavatar_ucp_desc}</p>
+        <div style="text-align:center;margin:10px 0;">
+            <div id="fancyavatar_preview_wrap" style="display:inline-block;cursor:pointer;position:relative;" title="{$lang->fancyavatar_ucp_shuffle_title}" onclick="fancyavatarShuffle();">
+                <img id="fancyavatar_preview_img" src="{$fancyavatar_preview}" alt="Fancy Avatar" width="{$fancyavatar_size}" height="{$fancyavatar_size}" style="border-radius:{$fancyavatar_radius}%;" />
+                <div style="margin-top:5px;font-size:11px;color:#888;">{$lang->fancyavatar_ucp_shuffle_hint}</div>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <input type="button" class="button" value="{$lang->fancyavatar_ucp_shuffle_button}" onclick="fancyavatarShuffle();" style="margin-right:5px;" />
+            <input type="button" class="button" value="{$lang->fancyavatar_ucp_button}" onclick="fancyavatarSave();" />
+        </div>
+    </td>
+</tr>
+<script type="text/javascript">
+var fancyavatarProvider = '{$fancyavatar_provider}';
+var fancyavatarSize = '{$fancyavatar_size}';
+var fancyavatarRadius = '{$fancyavatar_radius}';
+var fancyavatarPostKey = '{$mybb->post_code}';
+var fancyavatarMiscUrl = '{$fancyavatar_misc_url}';
+var fancyavatarUrl = '{$fancyavatar_preview}';
+var fancyavatarUsername = '{$mybb->user['username']}';
+
+// DiceBear settings
+var fancyavatarDicebearStyle = '{$fancyavatar_style}';
+
+// UI Avatars settings
+var fancyavatarUiavatarsBg = '{$fancyavatar_bgcolor}';
+var fancyavatarUiavatarsColor = '{$fancyavatar_uiavatars_color}';
+var fancyavatarUiavatarsBold = '{$fancyavatar_uiavatars_bold}';
+var fancyavatarUiavatarsLength = '{$fancyavatar_uiavatars_length}';
+
+// Avataaars settings
+var fancyavatarAvataaarsStyle = '{$fancyavatar_avataaars_style}';
+
+function fancyavatarRandomSeed() {
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var seed = '';
+    for (var i = 0; i < 12; i++) {
+        seed += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return seed;
+}
+
+function fancyavatarHashSeed(seed) {
+    var hash = 5381;
+    for (var i = 0; i < seed.length; i++) {
+        hash = ((hash << 5) + hash) + seed.charCodeAt(i);
+        hash = hash & 0x7FFFFFFF;
+    }
+    return hash;
+}
+
+function fancyavatarPick(arr, hash, shift) {
+    var h = (hash >>> shift) % arr.length;
+    return arr[h];
+}
+
+function fancyavatarGenerateDicebear(seed) {
+    var url = 'https://api.dicebear.com/7.x/' + encodeURIComponent(fancyavatarDicebearStyle) + '/svg?seed=' + encodeURIComponent(seed) + '&size=' + fancyavatarSize;
+    return url;
+}
+
+function fancyavatarGenerateUiavatars(seed) {
+    var bg = (fancyavatarUiavatarsBg && fancyavatarUiavatarsBg !== 'transparent') ? fancyavatarUiavatarsBg.replace(/^#/, '') : 'random';
+    var url = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(seed) + '&size=' + fancyavatarSize + '&background=' + bg + '&rounded=true&format=svg';
+    if (fancyavatarUiavatarsColor && fancyavatarUiavatarsColor !== 'default') {
+        url += '&color=' + fancyavatarUiavatarsColor.replace(/^#/, '');
+    }
+    if (fancyavatarUiavatarsBold === 'yes') {
+        url += '&bold=true';
+    }
+    if (fancyavatarUiavatarsLength > 0 && fancyavatarUiavatarsLength != 2) {
+        url += '&length=' + fancyavatarUiavatarsLength;
+    }
+    return url;
+}
+
+function fancyavatarGenerateAvataaars(seed) {
+    var hash = fancyavatarHashSeed(seed);
+    var topTypes = ['NoHair','Eyepatch','Hat','Hijab','Turban','Turban2','WinterHat1','WinterHat2','WinterHat3','WinterHat4','LongHairBigHair','LongHairBob','LongHairBun','LongHairCurly','LongHairCurvy','LongHairDreads','LongHairFrida','LongHairFro','LongHairFroBand','LongHairMiaWallace','LongHairNotTooLong','LongHairShaggyMiley','LongHairStraight','LongHairStraight2','LongHairStraightStrand','ShortHairDreads01','ShortHairFrizzle','ShortHairShaggyMullet','ShortHairShortCurly','ShortHairShortFlat','ShortHairShortWaved','ShortHairTheCaesar','ShortHairTheCaesarSidePart'];
+    var hairColors = ['Auburn','Black','Blonde','BlondeGolden','Brown','BrownDark','PastelPink','Platinum','Red','SilverGray'];
+    var accessories = ['Blank','Kurt','Prescription01','Prescription02','Round','Sunglasses','Wayfarers'];
+    var clotheTypes = ['BlazerShirt','BlazerSweater','CollarSweater','GraphicShirt','Hoodie','Overall','ShirtCrewNeck','ShirtScoopNeck','ShirtVNeck'];
+    var clotheColors = ['Black','Blue01','Blue02','Blue03','Gray01','Gray02','Heather','PastelBlue','PastelGreen','PastelOrange','PastelRed','PastelYellow','Pink','Red','White'];
+    var graphicTypes = ['Bat','Cumbia','Deer','Diamond','Hola','Pizza','Resist','Selena','Bear','SkullOutline','Skull'];
+    var eyeTypes = ['Close','Cry','Default','Dizzy','EyeRoll','Happy','Hearts','Side','Squint','Surprised','Wink','WinkWacky'];
+    var eyebrowTypes = ['Angry','AngryNatural','Default','DefaultNatural','FlatNatural','RaisedExcited','RaisedExcitedNatural','SadConcerned','SadConcernedNatural','UnibrowNatural','UpDown','UpDownNatural'];
+    var mouthTypes = ['Concerned','Default','Disbelief','Eating','Grimace','Sad','ScreamOpen','Serious','Smile','Tongue','Twinkle','Vomit'];
+    var skinColors = ['Tanned','Yellow','Pale','Light','Brown','DarkBrown','Black'];
+
+    var style = (fancyavatarAvataaarsStyle === 'transparent') ? 'Transparent' : 'Circle';
+    var url = 'https://avataaars.io/?avatarStyle=' + style;
+    url += '&topType=' + fancyavatarPick(topTypes, hash, 0);
+    url += '&hairColor=' + fancyavatarPick(hairColors, hash, 4);
+    url += '&accessoriesType=' + fancyavatarPick(accessories, hash, 8);
+    url += '&clotheType=' + fancyavatarPick(clotheTypes, hash, 12);
+    url += '&clotheColor=' + fancyavatarPick(clotheColors, hash, 16);
+    url += '&graphicType=' + fancyavatarPick(graphicTypes, hash, 20);
+    url += '&eyeType=' + fancyavatarPick(eyeTypes, hash, 24);
+    url += '&eyebrowType=' + fancyavatarPick(eyebrowTypes, hash, 28);
+    url += '&mouthType=' + fancyavatarPick(mouthTypes, hash, 1);
+    url += '&skinColor=' + fancyavatarPick(skinColors, hash, 5);
+    return url;
+}
+
+function fancyavatarGenerateUrl(seed) {
+    switch (fancyavatarProvider) {
+        case 'uiavatars': return fancyavatarGenerateUiavatars(seed);
+        case 'avataaars': return fancyavatarGenerateAvataaars(seed);
+        case 'dicebear':
+        default: return fancyavatarGenerateDicebear(seed);
+    }
+}
+
+function fancyavatarShuffle() {
+    var seed = fancyavatarRandomSeed();
+    var url = fancyavatarGenerateUrl(seed);
+    document.getElementById('fancyavatar_preview_img').src = url;
+    fancyavatarUrl = url;
+}
+
+function fancyavatarSave() {
+    if (!confirm('{$lang->fancyavatar_ucp_confirm}')) {
+        return;
+    }
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = fancyavatarMiscUrl;
+    form.style.display = 'none';
+
+    var fields = {
+        'my_post_key': fancyavatarPostKey,
+        'action': 'fancyavatar_set',
+        'avatar_url': fancyavatarUrl
+    };
+    for (var key in fields) {
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = fields[key];
+        form.appendChild(input);
+    }
+    document.body.appendChild(form);
+    form.submit();
+}
+</script>
