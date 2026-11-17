@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Fancy Avatar for MyBB</title>
+  <desc id="description">Generated avatars for MyBB, with DiceBear, UI Avatars and Avataaars providers, a user preview and admin tools.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10152b"/>
+      <stop offset="1" stop-color="#24204a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b7bff"/>
+      <stop offset="1" stop-color="#48d9c4"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#060817" flood-opacity=".35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" rx="28" fill="url(#background)"/>
+  <circle cx="1070" cy="90" r="190" fill="#7669ed" opacity=".12"/>
+  <circle cx="110" cy="570" r="210" fill="#44d7c2" opacity=".08"/>
+  <path d="M0 470C210 385 355 570 570 490s380-160 630-53v193H0Z" fill="#fff" opacity=".025"/>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="76" y="76" width="210" height="38" rx="19" fill="#ffffff" opacity=".09"/>
+    <circle cx="98" cy="95" r="5" fill="#56e0c3"/>
+    <text x="114" y="101" fill="#c9c8ef" font-size="14" font-weight="700" letter-spacing="1.7">MYBB PLUGIN</text>
+    <text x="76" y="190" fill="#fff" font-size="58" font-weight="750" letter-spacing="-2">Fancy Avatar</text>
+    <text x="78" y="235" fill="#aeadcf" font-size="23">A little more personality for every profile.</text>
+    <text x="78" y="299" fill="#e9e9f8" font-size="17">Automatically fills missing avatars—with choice,</text>
+    <text x="78" y="327" fill="#e9e9f8" font-size="17">personalization and simple tools for your community.</text>
+
+    <g transform="translate(78 388)">
+      <rect width="151" height="42" rx="21" fill="#fff" opacity=".09"/>
+      <text x="75.5" y="27" text-anchor="middle" fill="#d9d7ff" font-size="14" font-weight="650">DiceBear</text>
+      <rect x="163" width="151" height="42" rx="21" fill="#fff" opacity=".09"/>
+      <text x="238.5" y="27" text-anchor="middle" fill="#d9d7ff" font-size="14" font-weight="650">UI Avatars</text>
+      <rect x="326" width="151" height="42" rx="21" fill="#fff" opacity=".09"/>
+      <text x="401.5" y="27" text-anchor="middle" fill="#d9d7ff" font-size="14" font-weight="650">Avataaars</text>
+    </g>
+    <text x="78" y="505" fill="#8585aa" font-size="14" letter-spacing=".7">USER CP PICKER  ·  MODERATOR ACTIONS  ·  ADMIN BATCH TOOLS</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="694" y="117" width="414" height="396" rx="30" fill="#f7f7ff"/>
+    <rect x="718" y="141" width="366" height="50" rx="15" fill="#eeedfa"/>
+    <circle cx="743" cy="166" r="6" fill="#c6c3e6"/>
+    <circle cx="762" cy="166" r="6" fill="#c6c3e6"/>
+    <circle cx="781" cy="166" r="6" fill="#c6c3e6"/>
+    <rect x="816" y="157" width="177" height="18" rx="9" fill="#dcdaf0"/>
+
+    <circle cx="900" cy="295" r="77" fill="#e8e5ff"/>
+    <circle cx="900" cy="272" r="27" fill="#f2bd9a"/>
+    <path d="M870 268c4-37 57-46 67-8-12-8-22-11-34-10-10 1-21 7-33 18Z" fill="#41345e"/>
+    <path d="M846 351c6-40 29-59 54-59s48 19 54 59" fill="#8171ed"/>
+    <circle cx="891" cy="274" r="2.5" fill="#342d49"/>
+    <circle cx="909" cy="274" r="2.5" fill="#342d49"/>
+    <path d="M893 286q7 7 14 0" fill="none" stroke="#a95d68" stroke-width="2.5" stroke-linecap="round"/>
+
+    <rect x="760" y="391" width="280" height="47" rx="14" fill="url(#accent)"/>
+    <path d="M792 414a8 8 0 1 1 2.4 5.7M792 414v-7m0 7h7" fill="none" stroke="#141731" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="900" y="420" text-anchor="middle" fill="#141731" font-size="15" font-weight="750">Shuffle avatar</text>
+    <text x="900" y="467" text-anchor="middle" fill="#8988a5" font-size="13">Preview · choose · save</text>
+  </g>
+
+  <g transform="translate(1004 355)" filter="url(#shadow)">
+    <circle r="55" fill="#fff"/>
+    <circle r="43" fill="#f3d9ee"/>
+    <path d="M-24 19c4-18 15-27 24-27S20 1 24 19" fill="#41bfb0"/>
+    <circle cy="-13" r="19" fill="#d38b68"/>
+    <path d="M-20-15c2-20 35-23 40-2-9-5-27-6-40 2Z" fill="#362747"/>
+    <circle cx="-7" cy="-13" r="1.8" fill="#292237"/><circle cx="7" cy="-13" r="1.8" fill="#292237"/>
+    <path d="M-5-4q5 4 10 0" fill="none" stroke="#8e4654" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>
